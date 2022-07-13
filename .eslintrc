@@ -1,0 +1,14 @@
+{
+  "plugins": [],
+  "extends": [],
+  "ignorePatterns": ["**/*.js", "**/**/*.js"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "eqeqeq": "error",
+    "no-param-reassign": "error",
+    "no-return-assign": "error"
+  }
+}

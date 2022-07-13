@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oxide Org Identicons</title>
+    <style>
+      html {
+        background-color: black;
+      }
+
+      #app svg {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        padding: 4px;
+        color: #48d597;
+        background-color: #16362e;
+        border-radius: 2px;
+      }
+
+      #app {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    </style>
+    <script type="module" src="/src/example.ts"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
