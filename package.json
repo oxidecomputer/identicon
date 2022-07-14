@@ -1,5 +1,5 @@
 {
-  "name": "oxide-identicon",
+  "name": "identicon",
   "version": "1.0.0",
   "description": "Script to generate placeholder org identicons for the Oxide Console",
   "private": true,
