@@ -28,8 +28,8 @@
     "type": "git",
     "url": "git+https://github.com/oxidecomputer/identicon.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ben Leonard <ben.leonard@oxidecomputer.com> ",
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/oxidecomputer/identicon/issues"
   },
