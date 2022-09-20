@@ -1,6 +1,6 @@
 {
   "name": "@oxide/identicon",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Script to generate placeholder org identicons for the Oxide Console",
   "type": "module",
   "files": [
