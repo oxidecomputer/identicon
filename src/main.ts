@@ -71,4 +71,4 @@ const pixelsToSvg = (pixels: Rectangle[]): string => {
   return xml
 }
 
-export { generateIdenticon, randomHash }
+export { generateIdenticon, randomHash, md5 }
