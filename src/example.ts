@@ -1,29 +1,72 @@
-import generateIdenticon from './main'
+import { generateIdenticon, randomHash } from './main'
 
 const app = document.querySelector<HTMLDivElement>('#app')
 
 const hashes = [
-  { hash: 'd6fe8c82fb0abac17a702fd2a94eff37' },
-  { hash: '46384036044a604b6b3316fc167fc15f' },
-  { hash: 'd7e8128316e6d6fa7ec8ccd0d9c3bf9b' },
-  { hash: 'ec794ee0f389ce91650b9e7be6611763' },
-  { hash: 'ecf0ced126f36a273af0dc72961e7252' },
-  { hash: 'b15b27eb08998de0a8186f21e0ba8e4b' },
-  { hash: '6471f20bf08e9361068f497de07ba310' },
-  { hash: '3675ea58955516d0391a6b4d883427ff' },
-  { hash: 'f7bc35d39fdeff6a251aab0d3b00fbd3' },
-  { hash: 'be4b81bbcfd233a66105b925c2f55c06' },
-  { hash: '920143b82d8c66aaf4d92a3590f7711a' },
-  { hash: '791f26a843fc81459c66522132be9c15' },
-  { hash: '8ec8cffac4cc7b386e0714e200523e87' },
-  { hash: '56fd3b3507f15016b5b511ba36094806' },
-  { hash: 'b30bc42d4521695b9b7d04c5322b8b23' },
-  { hash: '87a346d79a3f48e4f254924552d95085' },
+  '534c3b5675d7933d55b242a822d41330',
+  '7745d58ee1f22e36e1ae64b2ca199690',
+  '4664cfb5c9dfd751081ceab16698f8b0',
+  'cde0de9fcc2f82f8b4719b8728ba2f98',
+  'dbfe23be04bc6200494ff880dc84b73b',
+  '4a0507c555db5e2307f2dcb25860a1b4',
+  '9262f63673ac2b08eacd6db401d61815',
+  '96d363ce6073e0a71217de422fd96324',
+  '1a5386e52c3b6f456a4a136d180f3d05',
+  '524eed7398e0f673f18cdda8bf7eac92',
+  '7938ce059025b7350a22450c0b8f6af3',
+  'b2e91416a9389d49f835afe887d02d1a',
+  'd02586aa46692992fa7388fe6b1c300e',
+  '83e53544593c3494d6197b278021e1c7',
+  '53ccfce8226cea1b1c1c8736bd4ee2e7',
+  '768ac0ce23017b6deac3c1e226dc9ef6',
 ]
 
-if (app) {
+const origHashes = [...hashes]
+
+const changeIdx = [
+  [0, 2, 5, 7, 8, 10, 13, 15],
+  [1, 3, 4, 6, 9, 11, 12, 14],
+]
+
+let frame = 0
+
+setInterval(() => {
+  if (frame === 5) {
+    //clearInterval(interval)
+
+    for (let i = 0; i < hashes.length; i++) {
+      if (changeIdx[frame % 2 ? 0 : 1].includes(i)) {
+        hashes[i] = origHashes[i]
+      }
+    }
+
+    render()
+
+    frame = 0
+
+    return
+  }
+
   for (let i = 0; i < hashes.length; i++) {
-    const data = generateIdenticon(hashes[i].hash).toString()
-    app.innerHTML += data
+    if (changeIdx[frame % 2 ? 0 : 1].includes(i)) {
+      hashes[i] = randomHash()
+    }
+  }
+
+  render()
+
+  frame++
+}, 1000)
+
+const render = () => {
+  if (app) {
+    app.innerHTML = ''
+    for (let i = 0; i < hashes.length; i++) {
+      const data = generateIdenticon(hashes[i]).toString()
+      console.log(data)
+      app.innerHTML += data
+    }
   }
 }
+
+render()
