@@ -1,6 +1,6 @@
 import md5 from 'md5'
 
-const randomHash = (): string => {
+const randomString = (): string => {
   const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
   const length = 24
@@ -11,11 +11,11 @@ const randomHash = (): string => {
     text += chars.substring((num = Math.floor(Math.random() * chars.length)), num + 1)
   }
 
-  return md5(text)
+  return text
 }
 
-const generateIdenticon = (hash: string): string => {
-  const pixels = renderPixels(hash)
+const generateIdenticon = (str: string): string => {
+  const pixels = renderPixels(md5(str))
   const svg = pixelsToSvg(pixels)
 
   return svg
@@ -71,4 +71,4 @@ const pixelsToSvg = (pixels: Rectangle[]): string => {
   return xml
 }
 
-export { generateIdenticon, randomHash, md5 }
+export { generateIdenticon, randomString }

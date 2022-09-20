@@ -1,4 +1,4 @@
-import { generateIdenticon, randomHash } from './main'
+import { generateIdenticon, randomString } from './main'
 
 const app = document.querySelector<HTMLDivElement>('#app')
 
@@ -49,7 +49,7 @@ setInterval(() => {
 
   for (let i = 0; i < hashes.length; i++) {
     if (changeIdx[frame % 2 ? 0 : 1].includes(i)) {
-      hashes[i] = randomHash()
+      hashes[i] = randomString()
     }
   }
 
@@ -63,7 +63,6 @@ const render = () => {
     app.innerHTML = ''
     for (let i = 0; i < hashes.length; i++) {
       const data = generateIdenticon(hashes[i]).toString()
-      console.log(data)
       app.innerHTML += data
     }
   }
