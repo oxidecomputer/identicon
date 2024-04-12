@@ -53,7 +53,7 @@ const renderPixels = (hash: string) => {
 
 const pixelsToSvg = (pixels: Rectangle[]): string => {
   let xml = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28">
-    <g style="fill: currentColor">`
+    <g fill="currentColor">`
 
   pixels.forEach((pixel) => {
     if (!pixel.isPixel) {
